@@ -1,0 +1,389 @@
+{
+    "modelName": "RUNDECK_Monitoring",
+    "displayName": "RUNDECK Monitoring",
+    "description": "",
+    "objectSummary": {
+        "Event-Based": 3,
+        "Transaction-Based": 0,
+        "Search-Based": 0
+    },
+    "objects": [
+        {
+            "objectName": "rundeck",
+            "displayName": "rundeck",
+            "parentName": "BaseEvent",
+            "fields": [
+                {
+                    "fieldName": "executionState",
+                    "owner": "rundeck",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "overall_status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "executionId",
+                    "owner": "rundeck",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "execution_ID",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "steps_ID",
+                            "owner": "rundeck",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "steps_ID",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "sr3eqsioyxkjhwpa3rixav2t9",
+                    "owner": "rundeck",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "'steps{}.id'"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "steps_start_time",
+                            "owner": "rundeck",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "steps_start_time",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "5ajhi0zc5gdv6iq5nmugi7ldi",
+                    "owner": "rundeck",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "'steps{}.startTime'"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "steps_end_time",
+                            "owner": "rundeck",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "steps_end_time",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "ryyuj5zzf89u49iqbvoqrggb9",
+                    "owner": "rundeck",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "'steps{}.endTime'"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "step_status",
+                            "owner": "rundeck",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "step_status",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "p7ffhgeiokwgy4jmrvwunb3xr",
+                    "owner": "rundeck",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "'steps{}.executionState'"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "steps_duration",
+                            "owner": "rundeck",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "steps_duration",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "pcw7djzo5ximzbie3q7rdx6r",
+                    "owner": "rundeck",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "'steps{}.duration'"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "tag=rundeck_total",
+                    "owner": "rundeck"
+                }
+            ],
+            "lineage": "rundeck"
+        },
+        {
+            "objectName": "rundeck_json",
+            "displayName": "rundeck_json",
+            "parentName": "rundeck",
+            "fields": [
+                {
+                    "fieldName": "executionState",
+                    "owner": "rundeck",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "overall_status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "executionId",
+                    "owner": "rundeck",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "execution_ID",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "tag=rundeck_json",
+                    "owner": "rundeck.rundeck_json"
+                }
+            ],
+            "lineage": "rundeck.rundeck_json"
+        },
+        {
+            "objectName": "rundeck_log",
+            "displayName": "rundeck_log",
+            "parentName": "rundeck",
+            "fields": [
+                {
+                    "fieldName": "executionState",
+                    "owner": "rundeck",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "overall_status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "executionId",
+                    "owner": "rundeck",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "execution_ID",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "tag=rundeck_log",
+                    "owner": "rundeck.rundeck_log"
+                }
+            ],
+            "lineage": "rundeck.rundeck_log"
+        }
+    ],
+    "objectNameList": [
+        "rundeck",
+        "rundeck_json",
+        "rundeck_log"
+    ]
+}
