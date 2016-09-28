@@ -1,0 +1,86 @@
+
+# Application-level permissions
+
+[]
+access = read : [ * ], write : [ admin, power ]
+
+### EVENT TYPES
+
+[eventtypes]
+export = system
+
+
+### PROPS
+
+[props]
+export = system
+
+
+### TRANSFORMS
+
+[transforms]
+export = system
+
+
+### LOOKUPS
+
+[lookups]
+export = system
+
+
+### VIEWSTATES: even normal users should be able to create shared viewstates
+
+[viewstates]
+access = read : [ * ], write : [ * ]
+export = system
+
+[app/ui]
+version = 6.4.3
+modtime = 1475019432.626188100
+
+[app/launcher]
+version = 6.4.3
+modtime = 1475019432.642235400
+
+[props/rundeck_log]
+owner = nobody
+version = 6.4.3
+modtime = 1475021896.257337900
+
+[props/rundeck_json]
+owner = nobody
+version = 6.4.3
+modtime = 1475019720.293089800
+
+[indexes/aiam_rundeck_index]
+owner = nobody
+version = 6.4.3
+modtime = 1475019764.562447800
+
+[eventtypes/rundeck_json]
+access = read : [ * ], write : [ admin, power ]
+export = system
+owner = nobody
+version = 6.4.3
+modtime = 1475022130.502534300
+
+[tags/eventtype%3Drundeck_json]
+access = read : [ * ], write : [ admin, power ]
+export = system
+owner = nobody
+version = 6.4.3
+modtime = 1475022130.530610000
+
+[eventtypes/rundeck_log]
+access = read : [ * ], write : [ admin, power ]
+export = system
+owner = nobody
+version = 6.4.3
+modtime = 1475022140.912319500
+
+[tags/eventtype%3Drundeck_log]
+access = read : [ * ], write : [ admin, power ]
+export = system
+owner = nobody
+version = 6.4.3
+modtime = 1475022140.931370900
